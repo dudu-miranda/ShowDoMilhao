@@ -13,8 +13,8 @@ var op:integer; {essa variavel receber� a op��o do usu�rio, caso ele que
 
     i,cartas,aux:integer;{ja essas ser�o auxiliares no programa.}
 
-    lol:array of string; {esse vetor sera usado em todas as ajudas.}
-    zoera:array [1..6] of boolean; {vetor pra definir as ajudas.}
+    vet_ajudas:array of string; {esse vetor sera usado em todas as ajudas.}
+    ajudas:array [1..6] of boolean; {vetor pra definir as ajudas.}
 
 /////////////////////////////DESENHO AJUDAS //////////////////////////////////
 /////////////////////////////DESENHO AJUDAS //////////////////////////////////
@@ -43,7 +43,7 @@ write('�      �');
 gotoxy (50,25);
 write('��������');
 
-   if zoera[4]=false then
+   if ajudas[4]=false then
     begin
     textcolor(red);
     gotoxy(54,18);
@@ -68,7 +68,7 @@ write('�      �');
 gotoxy (60,25);
 write('��������');
 
-   if zoera[5]=false then
+   if ajudas[5]=false then
     begin
     textcolor(red);
     gotoxy(64,18);
@@ -93,7 +93,7 @@ write('�      �');
 gotoxy (70,25);
 write('��������');
 
-   if zoera[6]=false then
+   if ajudas[6]=false then
     begin
     textcolor(red);
     gotoxy(74,18);
@@ -118,7 +118,7 @@ write('� SIGN �');
 gotoxy (40,25);
 write('��������');
 
-   if zoera[3]=false then
+   if ajudas[3]=false then
     begin
     textcolor(red);
     gotoxy(44,18);
@@ -143,7 +143,7 @@ write('�    �');
 gotoxy (30,25);
 write('��������');
 
-   if zoera[2]=false then
+   if ajudas[2]=false then
     begin
     textcolor(red);
     gotoxy(34,18);
@@ -168,7 +168,7 @@ write('� HELP �');
 gotoxy (20,25);
 write('��������');
 
-   if zoera[1]=false then
+   if ajudas[1]=false then
     begin
     textcolor(red);
     gotoxy(24,18);
@@ -210,11 +210,11 @@ begin
  gotoxy(11,19);
  write ('���');
  gotoxy(12,18);
- write (lol[0]);
+ write (vet_ajudas[0]);
  gotoxy(8,18);
- write (lol[1]);
+ write (vet_ajudas[1]);
  gotoxy(4,18);
- write (lol[2]);
+ write (vet_ajudas[2]);
 
 end;
 
@@ -231,9 +231,9 @@ var ixi,k,kk:integer;
    que ser�o as coordenadas do gotoxy.}
 begin
 
-   for ixi:=0 to length(lol)-1 do
+   for ixi:=0 to length(vet_ajudas)-1 do
      begin
-      case lol[ixi] of
+      case vet_ajudas[ixi] of
        'a':begin
             for kk:=1 to 80 do
                begin
@@ -287,7 +287,7 @@ begin
 
   {E esses s�o os desenhos das cartas que serao apresentado ao usuario.}
 
-  if (length(lol)=0) then
+  if (length(vet_ajudas)=0) then
      begin
      textbackground(white);
      textcolor(black);
@@ -304,7 +304,7 @@ begin
 
      end
 
-  else if (length(lol)=1) then
+  else if (length(vet_ajudas)=1) then
           begin
           textbackground(white);
           textcolor(black);
@@ -320,7 +320,7 @@ begin
           write ('�������');
           end
 
-  else if (length(lol)=2) then
+  else if (length(vet_ajudas)=2) then
           begin
           textbackground(white);
           textcolor(black);
@@ -336,7 +336,7 @@ begin
           write ('�������');
           end
 
-  else if (length(lol)=3) then
+  else if (length(vet_ajudas)=3) then
           begin
           textbackground(white);
           textcolor(black);
@@ -399,13 +399,13 @@ begin
  {E aqui se escreve as porcentagens que ir�o dentro de cada plaquinha que foi
  definido no escopo do programa.}
  gotoxy(5,19);
- write(lol[0]);
+ write(vet_ajudas[0]);
  gotoxy(11,19);
- write(lol[1]);
+ write(vet_ajudas[1]);
  gotoxy(5,23);
- write(lol[2]);
+ write(vet_ajudas[2]);
  gotoxy(11,23);
- write(lol[3]);
+ write(vet_ajudas[3]);
 
 end;
 
@@ -880,59 +880,59 @@ begin
         else if (reds=#100) or (reds=#68) then
                 usu[i]:='d'
 
-        else if (reds=#49) and (zoera[1]) then //ajuda dos universitarios
+        else if (reds=#49) and (ajudas[1]) then //ajuda dos universitarios
                 begin
-                zoera[1]:=false; {se da o valor de falso para a ajuda n�o
+                ajudas[1]:=false; {se da o valor de falso para a ajuda n�o
                                  poder ser reutilizada.}
                 rand:=random(4)+1; {se gera um numero aleatorio para definir
                                     como sera mostrado ao usuario a ajuda.}
-                setlength(lol,3); {se define o tamanho do vetor como 3}
+                setlength(vet_ajudas,3); {se define o tamanho do vetor como 3}
                 aux:=1; {e a variavel de controle recebe 1 para a ajuda poder
                          ser mostrada.}
 
                    if rand=1 then//n� aleatorio seja 1 sera mostrado corretamente
                      begin
-                     lol[0]:=geral[p[i]].resposta;
-                     lol[1]:=geral[p[i]].resposta;
+                     vet_ajudas[0]:=geral[p[i]].resposta;
+                     vet_ajudas[1]:=geral[p[i]].resposta;
                        repeat
-                       lol[2]:=chr(random(4)+97);
-                       until (lol[2]<>geral[p[i]].resposta);
+                       vet_ajudas[2]:=chr(random(4)+97);
+                       until (vet_ajudas[2]<>geral[p[i]].resposta);
                      end
 
 
                    else if rand=2 then {n� aleatorio 2 sera mostrado corretamente
                                         porem em uma ordem diferente.}
                         begin
-                        lol[0]:=geral[p[i]].resposta;
-                        lol[2]:=geral[p[i]].resposta;
+                        vet_ajudas[0]:=geral[p[i]].resposta;
+                        vet_ajudas[2]:=geral[p[i]].resposta;
                            repeat
-                           lol[1]:=chr(random(4)+97);
-                           until (lol[1]<>geral[p[i]].resposta);
+                           vet_ajudas[1]:=chr(random(4)+97);
+                           until (vet_ajudas[1]<>geral[p[i]].resposta);
                         end
 
                    else if rand=3 then{n� aleatorio 3 sera mostrado corretamente
                                         porem em uma ordem diferente.}
                         begin
-                        lol[1]:=geral[p[i]].resposta;
-                        lol[2]:=geral[p[i]].resposta;
+                        vet_ajudas[1]:=geral[p[i]].resposta;
+                        vet_ajudas[2]:=geral[p[i]].resposta;
                            repeat
-                           lol[0]:=chr(random(4)+97);
-                           until (lol[0]<>geral[p[i]].resposta);
+                           vet_ajudas[0]:=chr(random(4)+97);
+                           until (vet_ajudas[0]<>geral[p[i]].resposta);
                         end
 
                    else if rand=4 then //n� 4 sera mostrado incorretamente.
                         begin
-                        lol[1]:=geral[p[i]].resposta;
+                        vet_ajudas[1]:=geral[p[i]].resposta;
                            repeat
-                           lol[2]:=chr(random(4)+97);
-                           until (lol[2]<>geral[p[i]].resposta);
-                        lol[0]:=lol[2];
+                           vet_ajudas[2]:=chr(random(4)+97);
+                           until (vet_ajudas[2]<>geral[p[i]].resposta);
+                        vet_ajudas[0]:=vet_ajudas[2];
                         end;
                 end
 
-        else if (reds=#50) and (zoera[2]) then //ajuda das cartas
+        else if (reds=#50) and (ajudas[2]) then //ajuda das cartas
                 begin
-                zoera[2]:=false; //impossibilita-se de usar a ajuda novamente.
+                ajudas[2]:=false; //impossibilita-se de usar a ajuda novamente.
                 cartas_cont:=1; //variavel para executar o procedimento.
 
                 for j:=1 to 4 do
@@ -968,35 +968,35 @@ begin
                  if cartas=1 then {Caso o numero seja 1 se define qual a
                               op��o errada que sera apagada.}
                    begin
-                   setlength(lol,1);
+                   setlength(vet_ajudas,1);
 
                      repeat
                      rand:=random(4)+97;
-                     lol[0]:=chr(rand);
-                     until (lol[0]<>geral[p[i]].resposta);
+                     vet_ajudas[0]:=chr(rand);
+                     until (vet_ajudas[0]<>geral[p[i]].resposta);
                    end
 
                  else if cartas=2 then {Caso o numero seja 2 se define as op�oes
                                    que serao apagadas e se trata para n�o sair
                                    a mesma op��o.}
                     begin
-                      setlength(lol,2);
+                      setlength(vet_ajudas,2);
 
                        repeat
                        rand:=random(4)+97;
-                       lol[0]:=chr(rand);
+                       vet_ajudas[0]:=chr(rand);
                        mat2:=false;
 
                          while not(mat2) do
                          begin
                          rand:=random(4)+97;
-                         lol[1]:=char(rand);
+                         vet_ajudas[1]:=char(rand);
 
-                         if lol[0]<>lol[1] then
+                         if vet_ajudas[0]<>vet_ajudas[1] then
                          mat2:=true;
                          end;
 
-                     until (lol[0]<>geral[p[i]].resposta) and (lol[1]<>geral[p[i]].resposta);
+                     until (vet_ajudas[0]<>geral[p[i]].resposta) and (vet_ajudas[1]<>geral[p[i]].resposta);
                     end
 
                  else if cartas=3 then  {E caso o numero seja 3 se apaga todas as
@@ -1004,19 +1004,19 @@ begin
                                       para n�o apagar a certa e n�o apagar nenhuma
                                       repetida.}
                      begin
-                       setlength(lol,3);
+                       setlength(vet_ajudas,3);
 
                         repeat
                         rand:=random(4)+97;
-                        lol[0]:=chr(rand);
+                        vet_ajudas[0]:=chr(rand);
                         mat2:=false;
 
                             while not(mat2) do
                             begin
                             rand:=random(4)+97;
-                            lol[1]:=char(rand);
+                            vet_ajudas[1]:=char(rand);
 
-                            if lol[0]<>lol[1] then
+                            if vet_ajudas[0]<>vet_ajudas[1] then
                             mat2:=true;
                             end;
 
@@ -1025,26 +1025,26 @@ begin
                                 while not (mat2) do
                                 begin
                                 rand:=random(4)+97;
-                                lol[2]:=char(rand);
+                                vet_ajudas[2]:=char(rand);
 
-                                if (lol[1]<>lol[2]) and (lol[0]<>lol[2]) then
+                                if (vet_ajudas[1]<>vet_ajudas[2]) and (vet_ajudas[0]<>vet_ajudas[2]) then
                                 mat2:=true;
                                 end;
 
 
-                        until (lol[0]<>geral[p[i]].resposta) and (lol[1]<>geral[p[i]].resposta)
-                              and (lol[2]<>geral[p[i]].resposta);
+                        until (vet_ajudas[0]<>geral[p[i]].resposta) and (vet_ajudas[1]<>geral[p[i]].resposta)
+                              and (vet_ajudas[2]<>geral[p[i]].resposta);
                      end;
 
                  //escolha;
 
                 end
 
-        else if (reds=#51) and (zoera[3]) then //ajuda das placas
+        else if (reds=#51) and (ajudas[3]) then //ajuda das placas
                 begin
-                zoera[3]:=false; //impossibilita-se de poder usar a ajuda de novo.
+                ajudas[3]:=false; //impossibilita-se de poder usar a ajuda de novo.
                 rand:=random(2)+1; //se testa a sorte do usuario.
-                setlength(lol,4); //se define o tamanho para poder receber as % .
+                setlength(vet_ajudas,4); //se define o tamanho para poder receber as % .
                 aux2:=1; //para a ajuda poder ser apresentada.
 
                  if rand=1 then
@@ -1054,34 +1054,34 @@ begin
                    letra.}
                       if 'a'=geral[p[i]].resposta then
                         begin
-                        lol[0]:='35%';
-                        lol[1]:='20%';
-                        lol[2]:='15%';
-                        lol[3]:='30%';
+                        vet_ajudas[0]:='35%';
+                        vet_ajudas[1]:='20%';
+                        vet_ajudas[2]:='15%';
+                        vet_ajudas[3]:='30%';
                         end
 
                       else if 'b'=geral[p[i]].resposta then
                             begin
-                            lol[0]:='25%';
-                            lol[1]:='40%';
-                            lol[2]:='20%';
-                            lol[3]:='15%';
+                            vet_ajudas[0]:='25%';
+                            vet_ajudas[1]:='40%';
+                            vet_ajudas[2]:='20%';
+                            vet_ajudas[3]:='15%';
                             end
 
                       else if 'c'=geral[p[i]].resposta then
                             begin
-                            lol[0]:='25%';
-                            lol[1]:='20%';
-                            lol[2]:='30%';
-                            lol[3]:='25%';
+                            vet_ajudas[0]:='25%';
+                            vet_ajudas[1]:='20%';
+                            vet_ajudas[2]:='30%';
+                            vet_ajudas[3]:='25%';
                             end
 
                       else if 'd'=geral[p[i]].resposta then
                             begin
-                            lol[0]:='13%';
-                            lol[1]:='23%';
-                            lol[2]:='17%';
-                            lol[3]:='37%';
+                            vet_ajudas[0]:='13%';
+                            vet_ajudas[1]:='23%';
+                            vet_ajudas[2]:='17%';
+                            vet_ajudas[3]:='37%';
                             end
                     end
 
@@ -1091,34 +1091,34 @@ begin
                          begin
                             if 'a'=geral[p[i]].resposta then
                               begin
-                              lol[0]:='25%';
-                              lol[1]:='20%';
-                              lol[2]:='30%';
-                              lol[3]:='25%';
+                              vet_ajudas[0]:='25%';
+                              vet_ajudas[1]:='20%';
+                              vet_ajudas[2]:='30%';
+                              vet_ajudas[3]:='25%';
                               end
 
                             else if 'b'=geral[p[i]].resposta then
                                    begin
-                                   lol[0]:='93%';
-                                   lol[1]:='2%';
-                                   lol[2]:='2%';
-                                   lol[3]:='3%';
+                                   vet_ajudas[0]:='93%';
+                                   vet_ajudas[1]:='2%';
+                                   vet_ajudas[2]:='2%';
+                                   vet_ajudas[3]:='3%';
                                    end
 
                             else if 'c'=geral[p[i]].resposta then
                                    begin
-                                   lol[0]:='21%';
-                                   lol[1]:='30%';
-                                   lol[2]:='20%';
-                                   lol[3]:='29%';
+                                   vet_ajudas[0]:='21%';
+                                   vet_ajudas[1]:='30%';
+                                   vet_ajudas[2]:='20%';
+                                   vet_ajudas[3]:='29%';
                                    end
 
                             else if 'd'=geral[p[i]].resposta then
                                    begin
-                                   lol[0]:='20%';
-                                   lol[1]:='30%';
-                                   lol[2]:='30%';
-                                   lol[3]:='20%';
+                                   vet_ajudas[0]:='20%';
+                                   vet_ajudas[1]:='30%';
+                                   vet_ajudas[2]:='30%';
+                                   vet_ajudas[3]:='20%';
                                    end;
                          end;
 
@@ -1126,23 +1126,23 @@ begin
 
         {nas ajudas de pular se acrescenta um na variavel qtd. E isso serve para
         que as mensagens de que o usuario ganhou ou perdeu n�o sejam apresentadas.}
-        else if (reds=#52) and (zoera[4]) then //ajuda de pular
+        else if (reds=#52) and (ajudas[4]) then //ajuda de pular
                 begin
-                zoera[4]:=false;
+                ajudas[4]:=false;
                 qtd:=qtd+1;
                 break;
                 end
 
-        else if (reds=#53) and (zoera[5]) then //ajuda de pular
+        else if (reds=#53) and (ajudas[5]) then //ajuda de pular
                 begin
-                zoera[5]:=false;
+                ajudas[5]:=false;
                 qtd:=qtd+1;
                 break;
                 end
 
-        else if (reds=#54) and (zoera[6]) then //ajuda de pular
+        else if (reds=#54) and (ajudas[6]) then //ajuda de pular
                 begin
-                zoera[6]:=false;
+                ajudas[6]:=false;
                 qtd:=qtd+1;
                 break;
                 end;
@@ -1338,7 +1338,7 @@ begin
      queira jogar de novo n�o ter que fechar o programa para as ajudas
      reiniciarem.}
      for i:=1 to 6 do
-     zoera[i]:=true;
+     ajudas[i]:=true;
 
      clrscr;
      entrada;
