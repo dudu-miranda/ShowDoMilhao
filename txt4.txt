@@ -1,0 +1,120 @@
+Qual a biblioteca utilizada para a utilizacao dos comandos getdate e gettime em pascal?
+c
+a)VAR
+b)CRT
+c)DOS
+d)SET
+O que deve ser feito para se encontrar os multipos de 3 e/ou 5 em programacao?
+d
+a)if (num mod 15 = 0) then
+b)if (num mod 3/5 =0) then
+c)if (num mod 3) or (num mod 5) then
+d)if (num mod 3=0) or (num mod 5=0) then
+O que deve ser feito para definir o maior divisivel primo do numero 13195 tendo em mente que i e um loop e j outro?
+a
+a)if (13195 mod i=0) and (i mod j=0)  then maior:=i;
+b)if (13195 mod i<>0) or (i mod j=0)  then maior:=i;
+c)if (13195 mod i=0) or (i mod j=0)   then maior:=i;
+d)if (13195 mod i<>0) and (i mod j=0) then maior:=i;
+Como declarar uma constante na linguagem pascal?
+b
+a)constant
+b)const
+c)cons
+d)consta
+Ate quantos caracteres uma variavel do tipo string pode receber?
+c
+a)265
+b)245
+c)255
+d)244
+Na expressao A+B*C-F qual e a procedencia das operacoes respectivamente?
+d
+a)3,2,1
+b)3,1,2
+c)1,2,3
+d)2,1,3
+Qual o significado do operador XOR?
+a
+a)EXclusive or
+b)EXchange or
+c)EXcept or
+d)EXtended or
+O numero 2520 e o menor numero que pode ser divido por 1 a 10 sem nenhum resto. Qual dos codigos pode possibilitar isso?
+d
+a)while (cont<>10) do cont:=cont+1; if (cont mod 1=0) then cont:=cont+1;   {ATE} if (cont mod 10=0) then cont:=cont+1;
+b)while (cont<>10) do num:=num+cont; if (cont mod 1=0) then cont:=cont+1;  {ATE} if (cont mod 10=0) then cont:=cont+1;
+c)while (cont<>10) do cont:=cont+num; if (cont mod 1=0) then cont:=cont+1; {ATE} if (cont mod 10=0) then cont:=cont+1;
+d)while (cont<>10) do num:=num+1; if (num mod 1=0) then cont:=cont+1;      {ATE} if (num mod 10=0) then cont:=cont+1;
+Listando os 6 primeiros numeros primos:2,3,5,7,11,13 o sexto numero primo e 13. Tendo em mente que i esta em um loop. Qual dos codigos pode descobrir o milesimo numero primo?
+c
+a)while (contp<>1000) do num:=1; if (num mod i=0) then cont:=cont+1;            if cont=2 then contp:=contp+1;
+b)while (contp<>1000) do num:=num+1; if (num mod 1=0) then cont:=cont+1;        if cont=2 then contp:=contp+1;
+c)while (contp<>1000) do num:=num+1; if (num mod i=0) then cont:=cont+1;        if cont=2 then contp:=contp+1;
+d)while (contp<>1000) do num:=num+1; if (num mod i=0) then cont:=cont+1;        if cont=1 then contp:=contp+1;
+Qual a diferenca da divisao feita pelo simbolo / pela feita pela palavra        reservada DIV, respectivamente?
+b
+a)retorna o quociente inteiro / retorna o quociente
+b)retorna o quociente / retorna o quociente inteiro
+c)retorna o produto do quociente / retorna o quociente do produto
+d)nenhuma
+Qual a diferenca da variavel string pra variavel char?
+a
+a)string armazena cadeias de caracteres enquanto char armazena um caractere
+b)char armazena cadeias de caracteres enquanto string armazena um caractere
+c)nenhuma
+d)string armazena numeros e letras enquanto char so armazena letras
+Qual o tamanho em bytes da variavel real, integer e char respectivamente?
+d
+a)16bits,16bytes,1byte
+b)16bytes,16bits,1byte
+c)1bytes,8bits,6byte
+d)6bytes,16bits,1byte
+Qual outra maneira ha de fazer comentarios no pascal excluindo {} ?
+c
+a)--
+b)[]
+c)//
+d)**
+A soma dos numeros primos menores que 10 e 2+3+5+7=17. Qual dos codigos pode    possibilitar isso?
+b
+a)while (num<=10) do num:=num+1;    if (num mod i=0) then cont:=cont+1;         if cont=1 then  soma:=soma+num;
+b)while (num<=10) do num:=num+1;    if (num mod i=0) then cont:=cont+1;         if cont=2 then  soma:=soma+num;
+c)while (num<=10) do num:=num+cont; if (num mod i=0) then cont:=cont+1;         if cont=2 then  soma:=soma+num;
+d)while (num<=10) do num:=num+1;    if (num mod i=0) then cont:=cont+1;         if cont=2 then  soma:=soma+1;
+A soma dos numeros quadrados de 1 a 10 1^2+2^2..+10^2=385 enquanto, a soma dos  inteiros ao quadrado (1+2+..10)^2=3025. Tendo em mente que i esta em um loop.A  diferenca entre eles 3025-385=2640. Qual dos codigos pode possibilita isso?
+a
+a)soma1:=soma1+i*i; soma2:=soma2+i;  if (i=10) then begin  soma2:=soma2*soma2;  total:=soma2-soma1; break; end;
+b)soma1:=soma1+i*1; soma2:=soma2+i;  if (i=10) then begin  soma2:=soma2*soma2;  total:=soma2-soma1; break; end;
+c)soma1:=soma1+i*i; soma2:=soma2+1;  if (i=10) then begin  soma2:=soma2*soma2;  total:=soma2-soma1; break; end;
+d)soma1:=soma1+i*i; soma2:=soma2+i;  if (i=10) then begin  soma2:=soma2+soma2;  total:=soma2-soma1; break; end;
+A sequencia de adicao de numeros e a seguinte:1+2+3+4+5+6+7=28. Tendo em mente  que i esta em um loop. Os primeiros termos gerados sao 1,3,6,10,15,21,28. Qual  codigo possibilita isso?
+d
+a)soma:=soma+(1*i)+1; 
+b)soma:=soma+1;
+c)soma:=soma*i;
+d)soma:=soma+i;
+Qual o simbolo que representa o operador de modulo da linguagem de programacao  pascal?
+c
+a)/
+b)div
+c)mod
+d)vet
+Qual a diferenca entre SQR E SQRT na linguagem pascal?
+b
+a)Uma tem um T e a outra nao, e so isso de diferenca mesmo
+b)SQR te retorna o numero ao quadrado.SQRT te retorna a raiz quadrada do numero
+c)SQR te retorna a raiz quadrada do numero. SQRT te retorna o numero ao quadrado
+d)No fim sao iguais se for ver
+Qual sequencia de variaveis esta declarada corretamente de acordo com a         linguagem pascal?
+a
+a)biscoitinho_queimado,var1,lol
+b)biscoitinho-queimado,var1,lol
+c)biscoitinho_queimado,1var,lol
+d)#biscoitinho_queimado,var1,lol
+Qual destas e uma declaracao correta de um vetor na linguagem pascal?
+d
+a)vet array [n1..n2] of integer;
+b)vet;array [n..n2] of integer;
+c)vet of integer array [n..n2];
+d)vet:array [n..n2] of integer;
